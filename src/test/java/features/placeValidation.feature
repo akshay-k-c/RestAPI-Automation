@@ -16,7 +16,7 @@ Feature: validate google place apis
  |    40      | akshay    | (+91) 973 893 3937   |
 # |    50      | david     | (+91) 456 893 3937   |
 
-@deletePlace
+@deletePlace @Regression
 Scenario: delete a place using delete api and validate response
     Given delete the place by passing payload
     When user calls with "delete" request by passing "deletePlaceAPI"
