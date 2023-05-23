@@ -1,7 +1,7 @@
 
 Feature: validate google place apis
 
- @addPlace @Regression
+ @addPlace @Regression @API
   Scenario Outline: Add a place using add place api and validate response
     Given add place payload with <Accuracy> "<name>" "<phone>" values 
     When user calls with "post" request by passing "addPlaceAPI"
