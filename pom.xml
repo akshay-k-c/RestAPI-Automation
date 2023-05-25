@@ -48,23 +48,7 @@
         </execution>
       </executions>
     </plugin>
-        <plugin>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-maven-plugin</artifactId>
-      <version>6.10.4</version>
-      <executions>
-        <execution>
-          <id>runCucumber</id>
-          <phase>test</phase>
-          <goals>
-            <goal>test</goal>
-          </goals>
-          <configuration>
-            <tags>"your.test.tag"</tags>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
+    
 
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
