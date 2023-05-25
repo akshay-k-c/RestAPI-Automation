@@ -27,36 +27,29 @@
         <groups>your.test.tag</groups>
       </configuration>
     </plugin>
- <plugin>
-      <groupId>com.github.temyers</groupId>
-      <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-      <version>5.0.0</version>
-      <executions>
-        <execution>
-          <id>generateRunners</id>
-          <phase>generate-test-sources</phase>
-          <goals>
-            <goal>generateRunners</goal>
-          </goals>
-          <configuration>
-            <glue>your.step.definitions.package</glue>
-            <tags>"your.test.tag"</tags>
-            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
-            <featuresDirectory>src/test/resources/features</featuresDirectory>
-            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
+ 
     
 
-<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-surefire-plugin</artifactId>
-<configuration>
-<testFailureIgnore>true</testFailureIgnore>
-</configuration>
-</plugin>
+ <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <dependencies>
+        <dependency>
+          <groupId>io.cucumber</groupId>
+          <artifactId>cucumber-junit</artifactId>
+          <version>7.0.0</version>
+        </dependency>
+      </dependencies>
+      <configuration>
+        <includes>
+          <include>**/*Test.class</include>
+        </includes>
+        <systemPropertyVariables>
+          <cucumber.options>--tags @your.test.tag</cucumber.options>
+        </systemPropertyVariables>
+      </configuration>
+    </plugin>
 <plugin>
 <groupId>net.masterthought</groupId>
 <artifactId>maven-cucumber-reporting</artifactId>
