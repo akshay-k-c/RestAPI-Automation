@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
           glue= {"stepDefinitions"},
           
           plugin= "json:target/jsonReports/cucmber-report.json",
-        //  tags= "@deletePlace",
+         tags= "@jsonBody",
 //for reports
 //plugin ={"pretty","html:test-output"},
 

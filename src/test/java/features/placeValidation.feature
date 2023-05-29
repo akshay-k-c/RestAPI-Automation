@@ -22,3 +22,14 @@ Scenario: delete a place using delete api and validate response
     When user calls with "delete" request by passing "deletePlaceAPI"
     Then validate the response code as 200
     And check "status" in the resposne body is "OK"
+    
+    
+ @jsonBody
+Scenario: Add a place by passing json directly
+Given add place by passing "AddPlace.json" request
+ When user calls with "post" request by passing "addPlaceAPI"
+ Then validate the response code as 200
+ And check "status" in the resposne body is "OK"
+ And check "scope" in the respose as "APP"
+ 
+

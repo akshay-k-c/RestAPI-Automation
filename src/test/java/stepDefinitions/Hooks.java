@@ -5,7 +5,8 @@ import java.io.IOException;
 import io.cucumber.java.Before;
 import io.restassured.response.Response;
 
-public class Hooks {
+
+public class Hooks  {
 	
 	@Before("@deletePlace")
 	
@@ -20,5 +21,6 @@ public class Hooks {
 		
 		
 	}
-
+	
+	
 }

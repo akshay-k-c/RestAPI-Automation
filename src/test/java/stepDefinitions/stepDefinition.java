@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import static io.restassured.RestAssured.*;
@@ -43,7 +45,18 @@ public class stepDefinition extends Utils {
 		  res= given().spec(requestspecification()).body(td.addPlaceData(accuracy, name,phone));
 	 }
 	
+	 @Given("add place by passing {string} request")
+	 public void add_place_by_passing_request(String filename) throws IOException {
 	
+		 
+	String jsonBody=new String(Files.readAllBytes(Paths.get(getRequestPath()+filename)));
+	
+		 
+	  res=given().spec(requestspecification()).body(jsonBody);
+	  
+	  
+	 }
+
 	  
 	 @When("user calls with {string} request by passing {string}")
 	 public void user_calls_with_request_by_passing(String method, String resource) {

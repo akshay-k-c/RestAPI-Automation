@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 import io.restassured.builder.RequestSpecBuilder;
@@ -16,6 +19,8 @@ import io.restassured.specification.RequestSpecification;
 
 public class Utils {
 	 static RequestSpecification req;
+	//static FileInputStream file;
+	 //static Properties prop;
 
 	public RequestSpecification requestspecification() throws IOException {
 		
@@ -32,10 +37,8 @@ public class Utils {
 		return req;
 	}
 	public static  String getGlobalValue(String key) throws IOException {
-		Properties prop=new Properties();
-		FileInputStream file=new FileInputStream("/Users/akshaykc/Appium-Automation/MavenJava/src/test/java/resources/global.properties");
-		prop.load(file);
-		return prop.getProperty(key);
+		return getPropertyValue(key);
+		
 	}
 	
 	public static String  getJsonPath(Response response,String key)
@@ -46,6 +49,19 @@ public class Utils {
 		 return js1.get(key).toString();
 		
 		
+	}
+	public static String getPropertyValue(String key) throws IOException
+	{
+		Properties prop=new Properties();
+		FileInputStream file=new FileInputStream("src/test/java/resources/global.new.properties");
+		prop.load(file);
+		return prop.getProperty(key);
+		
+	}
+	
+	public static String getRequestPath() throws IOException {
+	
+		return getPropertyValue("path");
 	}
 
 }
